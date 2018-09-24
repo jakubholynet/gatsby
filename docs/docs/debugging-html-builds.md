@@ -16,8 +16,10 @@ Errors while building static HTML files generally happen for two reasons.
     sub-directories) are exporting either a React component or string. Gatsby
     treats any JS file listed under the pages dir as a page component, so it must
     have a default export that's a component or string.
+    
+3. You mix up `import` and `require` calls in the same file. This might lead to "WebpackError: Invariant Violation: Minified React error #130" since Webpack 4 is stricter than v3. The solution is to only use `import`.
 
-3.  Some other reason :-) #1 is the most common reason building static files
+4.  Some other reason :-) #1 is the most common reason building static files
     fail. If it's another reason, you have to be a bit more creative in figuring
     out the problem.
 
